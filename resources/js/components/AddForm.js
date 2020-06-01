@@ -10,6 +10,7 @@ export default class App extends Component {
       userName: '',
       userLastName: '',
       userMail: '',
+      propertyName: '',
       propertyType: '',
       propertyAera: '',
       roomNumber: '',
@@ -18,11 +19,11 @@ export default class App extends Component {
       propertyAdressComp: '',
       propertyCity: '',
       propertyZip: '',
-      bien: []
     }
     this.handleChangeUserName = this.handleChangeUserName.bind(this);
     this.handleChangeUserLastName = this.handleChangeUserLastName.bind(this);
     this.handleChangeUserMail = this.handleChangeUserMail.bind(this);
+    this.handleChangePropertyName = this.handleChangePropertyName.bind(this);
     this.handleChangePropertyType = this.handleChangePropertyType.bind(this);
     this.handleChangePropertyAera = this.handleChangePropertyAera.bind(this);
     this.handleChangeRoomNumber = this.handleChangeRoomNumber.bind(this);
@@ -52,6 +53,12 @@ export default class App extends Component {
         userMail: e.target.value
     });
     console.log('onChange Mail', this.state.userMail);
+  }
+  handleChangePropertyName(e) {
+    this.setState({
+        propertyName: e.target.value
+    });
+    console.log('onChange propertyName', this.state.propertyName);
   }
   handleChangePropertyType(e) {
     this.setState({
@@ -111,6 +118,7 @@ export default class App extends Component {
       user_name: this.state.userName,
       user_lastname: this.state.userLastName,
       user_mail: this.state.userMail,
+      property_name: this.state.propertyName,
       property_type: this.state.propertyType,
       property_area: this.state.propertyArea,
       property_room_nb: this.state.roomNumber,
@@ -128,7 +136,7 @@ export default class App extends Component {
     return (
       <div className="container">
         <form className="mt-5" onSubmit={this.handleSubmit}>
-          <h2><span>I</span>nformation utilisateur test</h2>
+          <h2><span>I</span>nformations utilisateur</h2>
           <div className="form-row">
             <div className="form-group col-md-4">
               <label for="inputLastname">Nom</label>
@@ -145,6 +153,12 @@ export default class App extends Component {
           </div>
 
           <h2 className="mt-5"><span>I</span>nformations du bien à mettre en vente</h2>
+          <div className="form-row">
+            <div className="form-group col-md-12">
+              <label for="inputNameBien">Nom commun du bien</label>
+              <input onChange={this.handleChangePropertyName} type="text" className="form-control" id="inputNameBien" placeholder="Maison avec piscine Pertuis"/>
+            </div>
+          </div>
           <div className="form-row">
             <div className="form-group col-md-3">
               <label for="inputTypeBien">Type de bien</label>

@@ -77471,6 +77471,7 @@ var App = /*#__PURE__*/function (_Component) {
       userName: '',
       userLastName: '',
       userMail: '',
+      propertyName: '',
       propertyType: '',
       propertyAera: '',
       roomNumber: '',
@@ -77478,12 +77479,12 @@ var App = /*#__PURE__*/function (_Component) {
       propertyAdress: '',
       propertyAdressComp: '',
       propertyCity: '',
-      propertyZip: '',
-      bien: []
+      propertyZip: ''
     };
     _this.handleChangeUserName = _this.handleChangeUserName.bind(_assertThisInitialized(_this));
     _this.handleChangeUserLastName = _this.handleChangeUserLastName.bind(_assertThisInitialized(_this));
     _this.handleChangeUserMail = _this.handleChangeUserMail.bind(_assertThisInitialized(_this));
+    _this.handleChangePropertyName = _this.handleChangePropertyName.bind(_assertThisInitialized(_this));
     _this.handleChangePropertyType = _this.handleChangePropertyType.bind(_assertThisInitialized(_this));
     _this.handleChangePropertyAera = _this.handleChangePropertyAera.bind(_assertThisInitialized(_this));
     _this.handleChangeRoomNumber = _this.handleChangeRoomNumber.bind(_assertThisInitialized(_this));
@@ -77519,6 +77520,14 @@ var App = /*#__PURE__*/function (_Component) {
         userMail: e.target.value
       });
       console.log('onChange Mail', this.state.userMail);
+    }
+  }, {
+    key: "handleChangePropertyName",
+    value: function handleChangePropertyName(e) {
+      this.setState({
+        propertyName: e.target.value
+      });
+      console.log('onChange propertyName', this.state.propertyName);
     }
   }, {
     key: "handleChangePropertyType",
@@ -77595,6 +77604,7 @@ var App = /*#__PURE__*/function (_Component) {
         user_name: this.state.userName,
         user_lastname: this.state.userLastName,
         user_mail: this.state.userMail,
+        property_name: this.state.propertyName,
         property_type: this.state.propertyType,
         property_area: this.state.propertyArea,
         property_room_nb: this.state.roomNumber,
@@ -77615,7 +77625,7 @@ var App = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "mt-5",
         onSubmit: this.handleSubmit
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "I"), "nformation utilisateur test"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "I"), "nformations utilisateur"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group col-md-4"
@@ -77650,6 +77660,18 @@ var App = /*#__PURE__*/function (_Component) {
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "mt-5"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "I"), "nformations du bien \xE0 mettre en vente"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col-md-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        "for": "inputNameBien"
+      }, "Nom commun du bien"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.handleChangePropertyName,
+        type: "text",
+        className: "form-control",
+        id: "inputNameBien",
+        placeholder: "Maison avec piscine Pertuis"
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group col-md-3"
@@ -78118,20 +78140,135 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
-var propertyChoises = ["Appartement - Aix en provence", "Maison - Pertuis"];
+var propertyChoises = ["test", "test2"];
 
 var ModifForm = /*#__PURE__*/function (_Component) {
   _inherits(ModifForm, _Component);
 
   var _super = _createSuper(ModifForm);
 
-  function ModifForm() {
+  function ModifForm(props) {
+    var _this;
+
     _classCallCheck(this, ModifForm);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      propertyType: '',
+      propertyAera: '',
+      roomNumber: '',
+      bedroomNumber: '',
+      propertyAdress: '',
+      propertyAdressComp: '',
+      propertyCity: '',
+      propertyZip: '',
+      properties: []
+    };
+    _this.handleChangePropertyType = _this.handleChangePropertyType.bind(_assertThisInitialized(_this));
+    _this.handleChangePropertyAera = _this.handleChangePropertyAera.bind(_assertThisInitialized(_this));
+    _this.handleChangeRoomNumber = _this.handleChangeRoomNumber.bind(_assertThisInitialized(_this));
+    _this.handleChangeBedroomNumber = _this.handleChangeBedroomNumber.bind(_assertThisInitialized(_this));
+    _this.handleChangePropertyAdress = _this.handleChangePropertyAdress.bind(_assertThisInitialized(_this));
+    _this.handleChangePropertyAdressComp = _this.handleChangePropertyAdressComp.bind(_assertThisInitialized(_this));
+    _this.handleChangePropertyCity = _this.handleChangePropertyCity.bind(_assertThisInitialized(_this));
+    _this.handleChangePropertyZip = _this.handleChangePropertyZip.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(ModifForm, [{
+    key: "handleChangePropertyType",
+    value: function handleChangePropertyType(e) {
+      this.setState({
+        propertyType: e.target.value
+      });
+      console.log('onChange propertyType :', this.state.propertyType);
+    }
+  }, {
+    key: "handleChangePropertyAera",
+    value: function handleChangePropertyAera(e) {
+      this.setState({
+        propertyAera: e.target.value
+      });
+      console.log('onChange propertyAera : ', this.state.propertyAera);
+    }
+  }, {
+    key: "handleChangeRoomNumber",
+    value: function handleChangeRoomNumber(e) {
+      this.setState({
+        roomNumber: e.target.value
+      });
+      console.log('onChange roomNumber :', this.state.roomNumber);
+    }
+  }, {
+    key: "handleChangeBedroomNumber",
+    value: function handleChangeBedroomNumber(e) {
+      this.setState({
+        bedroomNumber: e.target.value
+      });
+      console.log('onChange bedroomNumber :', this.state.bedroomNumber);
+    }
+  }, {
+    key: "handleChangePropertyAdress",
+    value: function handleChangePropertyAdress(e) {
+      this.setState({
+        propertyAdress: e.target.value
+      });
+      console.log('onChange propertyAdress :', this.state.propertyAdress);
+    }
+  }, {
+    key: "handleChangePropertyAdressComp",
+    value: function handleChangePropertyAdressComp(e) {
+      this.setState({
+        propertyAdressComp: e.target.value
+      });
+      console.log('onChange propertyAdressComp : ', this.state.propertyAdressComp);
+    }
+  }, {
+    key: "handleChangePropertyCity",
+    value: function handleChangePropertyCity(e) {
+      this.setState({
+        propertyCity: e.target.value
+      });
+      console.log('onChange propertyCity :', this.state.propertyCity);
+    }
+  }, {
+    key: "handleChangePropertyZip",
+    value: function handleChangePropertyZip(e) {
+      this.setState({
+        propertyZip: e.target.value
+      });
+      console.log('onChange propertyZip :', this.state.propertyZip);
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      axios.post('/mproperty', {
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        property_type: this.state.propertyType,
+        property_area: this.state.propertyArea,
+        property_room_nb: this.state.roomNumber,
+        property_bedroom_nb: this.state.bedroomNumber,
+        property_adress: this.state.propertyAdress,
+        property_adress_comp: this.state.propertyAdressComp,
+        property_city: this.state.propertyCity,
+        property_zip: this.state.propertyZip
+      }).then(function (response) {
+        console.log('from Submit', response);
+      });
+    }
+  }, {
+    key: "getProperties",
+    value: function getProperties() {}
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getProperties();
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -78141,15 +78278,15 @@ var ModifForm = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "mt-2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "M"), "odifier un bien mis en vente"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group col-md-12"
+        className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "selectBienDel"
+        htmlFor: "selectBienDel"
       }, "Bien"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        "class": "custom-select mr-sm-2",
+        className: "custom-select mr-sm-2",
         id: "selectBienDel"
       }, propertyChoises.map(function (item, index) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: index
+          key: index
         }, item);
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "mt-5"
@@ -78158,7 +78295,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group col-md-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "inputTypeBien"
+        htmlFor: "inputTypeBien"
       }, "Type de bien"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangePropertyType,
         type: "text",
@@ -78168,7 +78305,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group col-md-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "inputSuperficieBien"
+        htmlFor: "inputSuperficieBien"
       }, "Superficie (m\xB2)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangePropertyArea,
         type: "number",
@@ -78178,7 +78315,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group col-md-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "inputNbPiecesBien"
+        htmlFor: "inputNbPiecesBien"
       }, "Nombre de pi\xE8ces"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangeRoomNumber,
         type: "number",
@@ -78188,7 +78325,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group col-md-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "inputNbChambresBien"
+        htmlFor: "inputNbChambresBien"
       }, "Nombre de chambres"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangeBedroomNumber,
         type: "number",
@@ -78200,7 +78337,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group col-md-12"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "inputAdresseBien"
+        htmlFor: "inputAdresseBien"
       }, "Adresse"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangePropertyAdress,
         type: "text",
@@ -78210,7 +78347,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group col-md-12"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "inputCompAdresseBien"
+        htmlFor: "inputCompAdresseBien"
       }, "Compl\xE9ment d'adresse"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangePropertyAdressComp,
         type: "text",
@@ -78222,7 +78359,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group col-md-6"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "inputVilleBien"
+        htmlFor: "inputVilleBien"
       }, "Ville"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangePropertyCity,
         type: "text",
@@ -78232,7 +78369,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group col-md-6"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "inputZipBien"
+        htmlFor: "inputZipBien"
       }, "Code postal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangePropertyZip,
         type: "text",

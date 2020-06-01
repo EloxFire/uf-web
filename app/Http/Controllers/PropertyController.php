@@ -23,17 +23,18 @@ class PropertyController extends Controller {
       'user_mail' => 'required|max:255',
     ]);
     \App\Property::create([
-      'user_name' => $request->userName,
-      'user_lastname' => $request->inputLastName,
-      'user_mail' => $request->inputMail,
-      'property_type' => $request->inputTypeBien,
-      'property_area' => $request->inputSuperficieBien,
-      'property_city' => $request->inputVilleBien,
-      'property_adress' => $request->inputAdresseBien,
-      'property_adress_comp' => $request->inputCompAdresseBien,
-      'property_room_nb' => $request->inputNbPiecesBien,
-      'property_bedroom_nb' => $request->inputNbChambresBien,
-      'property_zip' => $request->inputZipBien
+      'user_name' => $request->user_name,
+      'user_lastname' => $request->user_lastname,
+      'user_mail' => $request->user_mail,
+      'property_name' => $request->property_name,
+      'property_type' => $request->property_type,
+      'property_area' => $request->property_area,
+      'property_city' => $request->property_city,
+      'property_adress' => $request->property_adress,
+      'property_adress_comp' => $request->property_adress_comp,
+      'property_room_nb' => $request->property_room_nb,
+      'property_bedroom_nb' => $request->property_bedroom_nb,
+      'property_zip' => $request->property_zip
     ]);
 
     // return redirect()->route('addForm')->with('success', 'Bien ajoutée !');
@@ -48,7 +49,9 @@ class PropertyController extends Controller {
   }
 
   public function update(Request $request, $id){
-    //
+
+    $mail = Auth::user()->mail;
+    App\Property::where('user_name', $name, 'user_mail', $mail)->update(['description' => $request->description, 'logo' => $request->logo]);
   }
 
   public function destroy($id){

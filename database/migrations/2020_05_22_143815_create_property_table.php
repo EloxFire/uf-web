@@ -18,6 +18,7 @@ class CreatePropertyTable extends Migration
             $table->string('user_name')->nullable();
             $table->string('user_lastname')->nullable();
             $table->string('user_mail')->nullable();
+            $table->string('property_name')->nullable();
             $table->string('property_type')->nullable();
             $table->string('property_area')->nullable();
             $table->string('property_room_nb')->nullable();
