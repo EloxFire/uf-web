@@ -32,14 +32,20 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
-          <ul class="navbar-nav mr-auto">
-
+          <ul class="navbar-nav ml-auto">
+            <div class="d-flex flex-row">
+              <a class="linksMenu mr-3" href="/"><i class="fas fa-home"></i> Accueil</a>
+              <a class="linksMenu mr-3" href="/buy"><i class="fas fa-home"></i> Achat</a>
+              <a class="linksMenu mr-3" href="/home"><i class="fas fa-hands-helping"></i> Vente</a>
+              <a class="linksMenu mr-3" href="/home"><i class="fas fa-hand-holding-usd"></i> Location</a>
+              <a class="linksMenu " href="/home"><i class="fas fa-store"></i> Nos agences</a>
+            </div>
           </ul>
 
           <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
-            @guest$
+            @guest
             <li class="nav-item">
               <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
@@ -48,6 +54,7 @@
               <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
             </li>
             @endif
+
             @else
             <li class="nav-item dropdown">
               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

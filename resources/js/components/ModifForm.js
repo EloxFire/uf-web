@@ -10,6 +10,7 @@ export default class ModifForm extends Component{
     super(props);
 
     this.state = {
+      propertyName: '',
       propertyType: '',
       propertyAera: '',
       roomNumber: '',
@@ -21,6 +22,7 @@ export default class ModifForm extends Component{
       properties: [],
     }
 
+    this.handleChangePropertyName = this.handleChangePropertyName.bind(this);
     this.handleChangePropertyType = this.handleChangePropertyType.bind(this);
     this.handleChangePropertyAera = this.handleChangePropertyAera.bind(this);
     this.handleChangeRoomNumber = this.handleChangeRoomNumber.bind(this);
@@ -33,6 +35,12 @@ export default class ModifForm extends Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleChangePropertyName(e) {
+    this.setState({
+        propertyName: e.target.value
+    });
+    console.log('onChange propertyName', this.state.propertyName);
+  }
   handleChangePropertyType(e) {
     this.setState({
         propertyType: e.target.value
@@ -41,9 +49,9 @@ export default class ModifForm extends Component{
   }
   handleChangePropertyAera(e) {
     this.setState({
-        propertyAera: e.target.value
+        propertyArea: e.target.value
     });
-    console.log('onChange propertyAera : ', this.state.propertyAera);
+    console.log('onChange propertyAera : ', this.state.propertyArea);
   }
   handleChangeRoomNumber(e) {
     this.setState({
@@ -84,10 +92,11 @@ export default class ModifForm extends Component{
 
   handleSubmit(e){
     e.preventDefault();
-    axios.post('/mproperty', {
+    axios.post('/modif', {
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
+      property_name: this.state.propertyName,
       property_type: this.state.propertyType,
       property_area: this.state.propertyArea,
       property_room_nb: this.state.roomNumber,
@@ -111,7 +120,7 @@ export default class ModifForm extends Component{
   render(){
     return(
       <div className="container">
-        <form className="mt-5">
+        <form className="mt-5" onSubmit={this.handleSubmit}>
           <h2 className="mt-2"><span>M</span>odifier un bien mis en vente</h2>
           <div className="form-group">
             <label htmlFor="selectBienDel">Bien</label>
@@ -121,6 +130,12 @@ export default class ModifForm extends Component{
           </div>
 
           <h2 className="mt-5"><span>I</span>nformations à modifier</h2>
+          <div className="form-row">
+            <div className="form-group col-md-12">
+              <label htmlFor="inputNameBien">Nom commun du bien (apparait comme titre su r les pages)</label>
+              <input onChange={this.handleChangePropertyName} type="text" className="form-control" id="inputNameBien" placeholder="Appartement, maison, villa..."/>
+            </div>
+          </div>
           <div className="form-row">
             <div className="form-group col-md-3">
               <label htmlFor="inputTypeBien">Type de bien</label>

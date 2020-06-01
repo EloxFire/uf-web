@@ -24,6 +24,6 @@ if (document.getElementById('modifForm')) {
     ReactDOM.render(<ModifForm />, document.getElementById('modifForm'));
 }
 
-if (document.getElementById('buyPage')) {
-    ReactDOM.render(<Buy />, document.getElementById('buyPage'));
-}
+// if (document.getElementByClassName('buyPage')) {
+//     ReactDOM.render(<Buy />, document.getElementByClassName('buyPage'));
+// }

@@ -27,6 +27,7 @@ class CreatePropertyTable extends Migration
             $table->string('property_adress_comp')->nullable();
             $table->string('property_city')->nullable();
             $table->string('property_zip')->nullable();
+            $table->string('property_price')->nullable();
             $table->timestamps();
         });
     }

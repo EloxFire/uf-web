@@ -35,6 +35,7 @@ Route::get('/buy', function () {
 });
 
 Route::resource('property', 'PropertyController');
+Route::post('modif', 'PropertyController@update');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

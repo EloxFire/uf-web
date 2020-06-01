@@ -12,26 +12,28 @@ export default class App extends Component {
       userMail: '',
       propertyName: '',
       propertyType: '',
-      propertyAera: '',
+      propertyArea: '',
       roomNumber: '',
       bedroomNumber: '',
       propertyAdress: '',
       propertyAdressComp: '',
       propertyCity: '',
       propertyZip: '',
+      propertyPrice: ''
     }
     this.handleChangeUserName = this.handleChangeUserName.bind(this);
     this.handleChangeUserLastName = this.handleChangeUserLastName.bind(this);
     this.handleChangeUserMail = this.handleChangeUserMail.bind(this);
     this.handleChangePropertyName = this.handleChangePropertyName.bind(this);
     this.handleChangePropertyType = this.handleChangePropertyType.bind(this);
-    this.handleChangePropertyAera = this.handleChangePropertyAera.bind(this);
+    this.handleChangePropertyArea = this.handleChangePropertyArea.bind(this);
     this.handleChangeRoomNumber = this.handleChangeRoomNumber.bind(this);
     this.handleChangeBedroomNumber = this.handleChangeBedroomNumber.bind(this);
     this.handleChangePropertyAdress = this.handleChangePropertyAdress.bind(this);
     this.handleChangePropertyAdressComp = this.handleChangePropertyAdressComp.bind(this);
     this.handleChangePropertyCity = this.handleChangePropertyCity.bind(this);
     this.handleChangePropertyZip = this.handleChangePropertyZip.bind(this);
+    this.handleChangePropertyPrice = this.handleChangePropertyPrice.bind(this);
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -66,11 +68,11 @@ export default class App extends Component {
     });
     console.log('onChange propertyType :', this.state.propertyType);
   }
-  handleChangePropertyAera(e) {
+  handleChangePropertyArea(e) {
     this.setState({
-        propertyAera: e.target.value
+        propertyArea: e.target.value
     });
-    console.log('onChange propertyAera : ', this.state.propertyAera);
+    console.log('onChange propertyAera : ', this.state.propertyArea);
   }
   handleChangeRoomNumber(e) {
     this.setState({
@@ -108,6 +110,12 @@ export default class App extends Component {
     });
     console.log('onChange propertyZip :', this.state.propertyZip);
   }
+  handleChangePropertyPrice(e) {
+    this.setState({
+        propertyPrice: e.target.value
+    });
+    console.log('onChange propertyPrice :', this.state.propertyPrice);
+  }
 
   handleSubmit(e){
     e.preventDefault();
@@ -127,6 +135,7 @@ export default class App extends Component {
       property_adress_comp: this.state.propertyAdressComp,
       property_city: this.state.propertyCity,
       property_zip: this.state.propertyZip,
+      property_price: this.state.propertyPrice
     }).then(response => {
       console.log('from Submit', response);
     });
@@ -155,7 +164,7 @@ export default class App extends Component {
           <h2 className="mt-5"><span>I</span>nformations du bien à mettre en vente</h2>
           <div className="form-row">
             <div className="form-group col-md-12">
-              <label for="inputNameBien">Nom commun du bien</label>
+              <label for="inputNameBien">Nom commun du bien (apparait comme titre su r les pages)</label>
               <input onChange={this.handleChangePropertyName} type="text" className="form-control" id="inputNameBien" placeholder="Maison avec piscine Pertuis"/>
             </div>
           </div>
@@ -188,13 +197,17 @@ export default class App extends Component {
             </div>
           </div>
           <div className="form-row">
-            <div className="form-group col-md-6">
+            <div className="form-group col-md-4">
               <label for="inputVilleBien">Ville</label>
               <input onChange={this.handleChangePropertyCity} type="text" className="form-control" id="inputVilleBien" placeholder="Aix-en-Provence"/>
             </div>
-            <div className="form-group col-md-6">
+            <div className="form-group col-md-4">
               <label for="inputZipBien">Code postal</label>
               <input onChange={this.handleChangePropertyZip} type="text" className="form-control" id="inputZipBien" placeholder="13090"/>
+            </div>
+            <div className="form-group col-md-4">
+              <label for="inputPrixBien">Prix de vente (€)</label>
+              <input onChange={this.handleChangePropertyPrice} type="number" className="form-control" id="inputPrixBien" placeholder="130000"/>
             </div>
           </div>
 
