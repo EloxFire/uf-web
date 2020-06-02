@@ -87,7 +87,7 @@
 
     <div class="content">
       <div class="title m-b-md">
-        <p><span style="color:#e36259">S</span>tephiPlace Real Estate<span style="font-size:.3em;color:#e36259">web</span></p>
+        <p><span style="color:#e36259">S</span>tephiPlace Real Estate<span style="font-size:.3em;color:#e36259">Web</span></p>
       </div>
 
       <div class="links">
