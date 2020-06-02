@@ -145,7 +145,7 @@ export default class App extends Component {
     return (
       <div className="container">
         <form className="mt-5" onSubmit={this.handleSubmit}>
-          <h2><span>I</span>nformations utilisateur</h2>
+          {/*<h2><span>I</span>nformations utilisateur</h2>
           <div className="form-row">
             <div className="form-group col-md-4">
               <label for="inputLastname">Nom</label>
@@ -159,7 +159,7 @@ export default class App extends Component {
               <label for="inputMail">Mail</label>
               <input onChange={this.handleChangeUserMail} type="email" className="form-control" id="inputMail" placeholder="Votre mail"/>
             </div>
-          </div>
+          </div>*/}
 
           <h2 className="mt-5"><span>I</span>nformations du bien à mettre en vente</h2>
           <div className="form-row">

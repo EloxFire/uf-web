@@ -77636,39 +77636,7 @@ var App = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "mt-5",
         onSubmit: this.handleSubmit
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "I"), "nformations utilisateur"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group col-md-4"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "inputLastname"
-      }, "Nom"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        onChange: this.handleChangeUserName,
-        type: "text",
-        className: "form-control",
-        id: "inputLastname",
-        placeholder: "Votre nom"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group col-md-4"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "inputName"
-      }, "Pr\xE9nom"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        onChange: this.handleChangeUserLastName,
-        type: "text",
-        className: "form-control",
-        id: "inputName",
-        placeholder: "Votre prenom"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group col-md-4"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "inputMail"
-      }, "Mail"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        onChange: this.handleChangeUserMail,
-        type: "email",
-        className: "form-control",
-        id: "inputMail",
-        placeholder: "Votre mail"
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "mt-5"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "I"), "nformations du bien \xE0 mettre en vente"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-row"
@@ -78161,7 +78129,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
-var propertyChoises = ["test", "test2"];
 
 var ModifForm = /*#__PURE__*/function (_Component) {
   _inherits(ModifForm, _Component);
@@ -78176,6 +78143,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
     _this = _super.call(this, props);
     _this.state = {
       propertyName: '',
+      propertyNewName: '',
       propertyType: '',
       propertyAera: '',
       roomNumber: '',
@@ -78184,9 +78152,10 @@ var ModifForm = /*#__PURE__*/function (_Component) {
       propertyAdressComp: '',
       propertyCity: '',
       propertyZip: '',
-      properties: []
+      propertyPrice: ''
     };
     _this.handleChangePropertyName = _this.handleChangePropertyName.bind(_assertThisInitialized(_this));
+    _this.handleChangePropertyNewName = _this.handleChangePropertyNewName.bind(_assertThisInitialized(_this));
     _this.handleChangePropertyType = _this.handleChangePropertyType.bind(_assertThisInitialized(_this));
     _this.handleChangePropertyAera = _this.handleChangePropertyAera.bind(_assertThisInitialized(_this));
     _this.handleChangeRoomNumber = _this.handleChangeRoomNumber.bind(_assertThisInitialized(_this));
@@ -78195,6 +78164,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
     _this.handleChangePropertyAdressComp = _this.handleChangePropertyAdressComp.bind(_assertThisInitialized(_this));
     _this.handleChangePropertyCity = _this.handleChangePropertyCity.bind(_assertThisInitialized(_this));
     _this.handleChangePropertyZip = _this.handleChangePropertyZip.bind(_assertThisInitialized(_this));
+    _this.handleChangePropertyPrice = _this.handleChangePropertyPrice.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -78206,6 +78176,14 @@ var ModifForm = /*#__PURE__*/function (_Component) {
         propertyName: e.target.value
       });
       console.log('onChange propertyName', this.state.propertyName);
+    }
+  }, {
+    key: "handleChangePropertyNewName",
+    value: function handleChangePropertyNewName(e) {
+      this.setState({
+        propertyNewName: e.target.value
+      });
+      console.log('onChange propertyNewName', this.state.propertyNewName);
     }
   }, {
     key: "handleChangePropertyType",
@@ -78272,6 +78250,14 @@ var ModifForm = /*#__PURE__*/function (_Component) {
       console.log('onChange propertyZip :', this.state.propertyZip);
     }
   }, {
+    key: "handleChangePropertyPrice",
+    value: function handleChangePropertyPrice(e) {
+      this.setState({
+        propertyPrice: e.target.value
+      });
+      console.log('onChange propertyPrice :', this.state.propertyPrice);
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
@@ -78280,6 +78266,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         property_name: this.state.propertyName,
+        property_new_name: this.state.propertyNewName,
         property_type: this.state.propertyType,
         property_area: this.state.propertyArea,
         property_room_nb: this.state.roomNumber,
@@ -78287,18 +78274,11 @@ var ModifForm = /*#__PURE__*/function (_Component) {
         property_adress: this.state.propertyAdress,
         property_adress_comp: this.state.propertyAdressComp,
         property_city: this.state.propertyCity,
-        property_zip: this.state.propertyZip
+        property_zip: this.state.propertyZip,
+        property_price: this.state.property_price
       }).then(function (response) {
         console.log('from Submit', response);
       });
-    }
-  }, {
-    key: "getProperties",
-    value: function getProperties() {}
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.getProperties();
     }
   }, {
     key: "render",
@@ -78311,26 +78291,27 @@ var ModifForm = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "mt-2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "M"), "odifier un bien mis en vente"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "selectBienDel"
-      }, "Bien"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        className: "custom-select mr-sm-2",
-        id: "selectBienDel"
-      }, propertyChoises.map(function (item, index) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          key: index
-        }, item);
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "mt-5"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "I"), "nformations \xE0 modifier"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group col-md-12"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "inputNameBien"
-      }, "Nom commun du bien (apparait comme titre su r les pages)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Bien \xE0 modifier"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangePropertyName,
+        type: "text",
+        className: "form-control",
+        id: "inputNameBien",
+        placeholder: "Appartement, maison, villa..."
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "mt-5"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "N"), "ouvelles informations"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col-md-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "inputNameBien"
+      }, "Nouveau nom commun du bien (apparait comme titre su r les pages)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.handleChangePropertyNewName,
         type: "text",
         className: "form-control",
         id: "inputNameBien",
@@ -78341,7 +78322,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
         className: "form-group col-md-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "inputTypeBien"
-      }, "Type de bien"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Nouveau nype de bien"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangePropertyType,
         type: "text",
         className: "form-control",
@@ -78351,7 +78332,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
         className: "form-group col-md-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "inputSuperficieBien"
-      }, "Superficie (m\xB2)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Nouvelle superficie (m\xB2)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangePropertyArea,
         type: "number",
         className: "form-control",
@@ -78361,7 +78342,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
         className: "form-group col-md-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "inputNbPiecesBien"
-      }, "Nombre de pi\xE8ces"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Nouveau nombre de pi\xE8ces"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangeRoomNumber,
         type: "number",
         className: "form-control",
@@ -78371,7 +78352,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
         className: "form-group col-md-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "inputNbChambresBien"
-      }, "Nombre de chambres"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Nouveau nombre de chambres"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangeBedroomNumber,
         type: "number",
         className: "form-control",
@@ -78383,7 +78364,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
         className: "form-group col-md-12"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "inputAdresseBien"
-      }, "Adresse"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Nouvelle adresse"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangePropertyAdress,
         type: "text",
         className: "form-control",
@@ -78393,7 +78374,7 @@ var ModifForm = /*#__PURE__*/function (_Component) {
         className: "form-group col-md-12"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "inputCompAdresseBien"
-      }, "Compl\xE9ment d'adresse"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Nouveau compl\xE9ment d'adresse"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangePropertyAdressComp,
         type: "text",
         className: "form-control",
@@ -78402,25 +78383,35 @@ var ModifForm = /*#__PURE__*/function (_Component) {
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group col-md-6"
+        className: "form-group col-md-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "inputVilleBien"
-      }, "Ville"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Nouvelle ville"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangePropertyCity,
         type: "text",
         className: "form-control",
         id: "inputVilleBien",
         placeholder: "Aix-en-Provence"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group col-md-6"
+        className: "form-group col-md-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "inputZipBien"
-      }, "Code postal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Nouveau code postal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChangePropertyZip,
         type: "text",
         className: "form-control",
         id: "inputZipBien",
         placeholder: "13090"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col-md-4"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "inputPriceBien"
+      }, "Nouveau prix"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.handleChangePropertyPrice,
+        type: "number",
+        className: "form-control",
+        id: "inputPriceBien",
+        placeholder: "100000"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "mt-3 btn btn-warning"

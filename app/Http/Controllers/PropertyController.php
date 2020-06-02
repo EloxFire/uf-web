@@ -18,15 +18,10 @@ class PropertyController extends Controller {
 
   public function store(Request $request){
 
-    $request->validate([
-      'user_name' => 'required|max:255',
-      'user_lastname' => 'required|max:255',
-      'user_mail' => 'required|max:255',
-    ]);
     \App\Property::create([
-      'user_name' => $request->user_name,
-      'user_lastname' => $request->user_lastname,
-      'user_mail' => $request->user_mail,
+      'user_name' => Auth::user()->lastname,
+      'user_lastname' => Auth::user()->firstname,
+      'user_mail' => Auth::user()->email,
       'property_name' => $request->property_name,
       'property_type' => $request->property_type,
       'property_area' => $request->property_area,
@@ -50,12 +45,13 @@ class PropertyController extends Controller {
 
   public function update(Request $request){
 
+    $lastname = Auth::user()->lastname;
     $name = Auth::user()->firstname;
-    $mail = Auth::user()->mail;
+    $mail = Auth::user()->email;
     $property_name = $request->property_name;
 
-    \App\Property::where('user_name', $name, 'property_name', $property_name)->update([
-      'property_name' => $request->property_name,
+    \App\Property::where('user_name', $firstname, 'user_lastname', $lastname, 'property_name', $property_name)->update([
+      'property_name' => $request->property_new_name,
       'property_type' => $request->property_type,
       'property_area' => $request->property_area,
       'property_city' => $request->property_city,
@@ -63,11 +59,15 @@ class PropertyController extends Controller {
       'property_adress_comp' => $request->property_adress_comp,
       'property_room_nb' => $request->property_room_nb,
       'property_bedroom_nb' => $request->property_bedroom_nb,
-      'property_zip' => $request->property_zip
+      'property_zip' => $request->property_zip,
+      'property_price' => $request->property_price
     ]);
   }
 
-  public function destroy($id){
-    //
+  public function destroy(Request $request){
+    $name = $request->selectBienDel;
+    $adress = $request->selectedAdress;
+    
+    \App\Property::where('property_name', $name, 'property_adress', $adress)->delete();
   }
 }

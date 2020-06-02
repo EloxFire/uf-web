@@ -7,6 +7,11 @@
       use App\Property;
       $p = Property::get();
     ?>
+    @if(count($p) <= 0)
+    <div class="col-12 d-flex flex-row justify-content-center">
+      <h1>Aucunes annonces disponibles</h1>
+    </div>
+    @endif
     <div class="col-12 d-flex flex-wrap justify-content-center">
       @foreach($p as $property)
       <div class="buyPage col-4">

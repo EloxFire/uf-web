@@ -36,6 +36,7 @@ Route::get('/buy', function () {
 
 Route::resource('property', 'PropertyController');
 Route::post('modif', 'PropertyController@update');
+Route::delete('delete', 'PropertyController@destroy')->name('bien.remove');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
