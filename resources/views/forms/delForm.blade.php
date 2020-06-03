@@ -12,18 +12,15 @@
             use App\Property;
             $p = Property::get();
           ?>
-          @foreach ($p as $property)
-          <option value="{{$property->property_name}}">{{$property->property_name}}</option>
-          @endforeach
+
+          <option value="Villa 1">Villa 1</option>
         </select>
       </div>
 
       <div class="form-group col-md-12">
-        <label for="selectBienDel">Adresse du bien à retirer de la vente</label>
-        <select class="custom-select mr-sm-2" id="selectBienDel">
-          @foreach ($p as $property)
-          <option value="{{$property->property_adress}}">{{$property->property_adress}}</option>
-          @endforeach
+        <label for="selectedAdress">Adresse du bien à retirer de la vente</label>
+        <select class="custom-select mr-sm-2" id="selectedAdress">
+
         </select>
 
         <button type="submit" class="mt-3 btn btn-danger">Retirer le bien</button>

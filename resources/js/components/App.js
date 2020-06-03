@@ -20,25 +20,24 @@ export default class App extends Component {
                   <h4><span>G</span>estion de propriétés.</h4>
                   <div className="d-flex flex-row">
                     <a href="/addForm" class=" m-2 col-3 text-center btn btn-success">Ajouter un bien à vendre</a>
-                    <a href="/delForm" class=" m-2 col-3 text-center btn btn-success">Supprimer un bien en vente</a>
                     <a href="/modifForm" class=" m-2 col-3 text-center btn btn-success">Modifier un bien en vente</a>
+                    <a href="/delForm" class=" m-2 col-3 text-center btn btn-success">Supprimer un bien en vente</a>
                   </div>
                 </div>
                 <div className="d-flex flex-column justify-content-center mb-3">
                   <h4><span>G</span>estion profil utilisateur.</h4>
                   <div className="d-flex flex-row">
-                    <a href="/addForm" class=" m-2 col-3 text-center btn btn-success">Modifier mon mot de passe</a>
-                    <a href="/delForm" class=" m-2 col-3 text-center btn btn-success">Modifier mes informations publiques</a>
-                    <a href="/modifForm" class=" m-2 col-3 text-center btn btn-success">Modifier mes informations personnelles</a>
+                    <a href="/addForm" class=" m-2 col-3 text-center btn btn-warning">Modifier mon mot de passe</a>
+                    <a href="/delForm" class=" m-2 col-3 text-center btn btn-warning">Modifier mes informations</a>
                   </div>
                 </div>
                 <div className="d-flex flex-column justify-content-center mb-3">
-                  <h4><span>M</span>es offres.</h4>
+                  <h4><span>M</span>es propositions d'achat.</h4>
                   <div className="d-flex flex-wrap">
                     <OfferCard name="Villa Aix" price="845 050 €" statut="attente"/>
                     <OfferCard name="Appartement Aix" price="120 200 €" statut="attente"/>
                     <OfferCard name="Maison Pertuis" price="400 000 €" statut="refuse"/>
-                    <OfferCard name="Appartement Pertuis" price="120 000 €" statut="accepte"/>
+                    {/*<OfferCard name="Appartement Pertuis" price="120 000 €" statut="accepte"/>*/}
                   </div>
                 </div>
               </div>

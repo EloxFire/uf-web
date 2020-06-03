@@ -22,6 +22,7 @@
             <p class="card-text desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
           </div>
           <ul class="list-group list-group-flush">
+            <li class="list-group-item">Type : {{$property->property_type}}</li>
             <li class="list-group-item">Prix : {{$property->property_price}} €</li>
             <li class="list-group-item">Surface : {{$property->property_area}} m²</li>
             <li class="list-group-item">Pièces : {{$property->property_room_nb}}</li>

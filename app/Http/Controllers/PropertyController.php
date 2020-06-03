@@ -33,6 +33,8 @@ class PropertyController extends Controller {
       'property_zip' => $request->property_zip,
       'property_price' => $request->property_price
     ]);
+
+    return redirect()->route('home')->with('success', 'Propriété ajoutée !');
   }
 
   public function show($id){
@@ -50,7 +52,7 @@ class PropertyController extends Controller {
     $mail = Auth::user()->email;
     $property_name = $request->property_name;
 
-    \App\Property::where('user_name', $firstname, 'user_lastname', $lastname, 'property_name', $property_name)->update([
+    \App\Property::where('property_name', $property_name)->update([
       'property_name' => $request->property_new_name,
       'property_type' => $request->property_type,
       'property_area' => $request->property_area,
@@ -67,7 +69,9 @@ class PropertyController extends Controller {
   public function destroy(Request $request){
     $name = $request->selectBienDel;
     $adress = $request->selectedAdress;
-    
-    \App\Property::where('property_name', $name, 'property_adress', $adress)->delete();
+
+    \App\Property::where('property_name', $name)->delete();
+
+    // return redirect()->route('home')->with('success', 'Propriété suprimée !');
   }
 }

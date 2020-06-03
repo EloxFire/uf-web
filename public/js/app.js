@@ -77838,27 +77838,24 @@ var App = /*#__PURE__*/function (_Component) {
         href: "/addForm",
         "class": " m-2 col-3 text-center btn btn-success"
       }, "Ajouter un bien \xE0 vendre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "/delForm",
-        "class": " m-2 col-3 text-center btn btn-success"
-      }, "Supprimer un bien en vente"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "/modifForm",
         "class": " m-2 col-3 text-center btn btn-success"
-      }, "Modifier un bien en vente"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Modifier un bien en vente"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "/delForm",
+        "class": " m-2 col-3 text-center btn btn-success"
+      }, "Supprimer un bien en vente"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex flex-column justify-content-center mb-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "G"), "estion profil utilisateur."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex flex-row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "/addForm",
-        "class": " m-2 col-3 text-center btn btn-success"
+        "class": " m-2 col-3 text-center btn btn-warning"
       }, "Modifier mon mot de passe"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "/delForm",
-        "class": " m-2 col-3 text-center btn btn-success"
-      }, "Modifier mes informations publiques"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "/modifForm",
-        "class": " m-2 col-3 text-center btn btn-success"
-      }, "Modifier mes informations personnelles"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": " m-2 col-3 text-center btn btn-warning"
+      }, "Modifier mes informations"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex flex-column justify-content-center mb-3"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "M"), "es offres."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "M"), "es propositions d'achat."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex flex-wrap"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_subComponents_offerCards__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "Villa Aix",
@@ -77872,10 +77869,6 @@ var App = /*#__PURE__*/function (_Component) {
         name: "Maison Pertuis",
         price: "400 000 \u20AC",
         statut: "refuse"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_subComponents_offerCards__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        name: "Appartement Pertuis",
-        price: "120 000 \u20AC",
-        statut: "accepte"
       }))))))));
     }
   }]);
